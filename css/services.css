@@ -1,0 +1,258 @@
+.services {
+    padding: 50px 20px;
+    background-color: #030405;
+    position: relative;
+    overflow: hidden;
+}
+
+.services .section-heading {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    background: linear-gradient(200deg, #F62C62, #F39C12);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.services .section-description {
+    font-size: 1.15rem;
+    color: #F0F4EE;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.service-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.service-category {
+    width: 180px;
+    height: 180px;
+    background-color: #F62C62;
+    color: #F0F4EE;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    margin-right: 50px;
+    z-index: 2;
+}
+
+.service-items {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.service-item {
+    width: 150px;
+    height: 150px;
+    background-color: #030405;
+    border: 2px solid #F62C62;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    box-shadow: 0 0 15px rgba(246, 44, 98, 0.3);
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 1s ease, transform 1s ease;
+    z-index: 2;
+}
+
+.service-item:hover {
+    transform: scale(1.05);
+}
+
+.service-item.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-top: 12%;
+    margin-bottom: 5px;
+}
+
+.service-item h4 {
+    color: #F0F4EE;
+    font-size: 0.9rem;
+}
+
+.connecting-line {
+    position: absolute;
+    top: 50%;
+    left: 20%; /* Adjust based on gap between category and items */
+    right: 20%; /* Adjust based on item width */
+    height: 2px;
+    background-color: #F62C62;
+    z-index: 1;
+    transform-origin: left center;
+    transform: scaleX(0);
+    transition: transform 0.8s ease;
+}
+
+.connecting-line.visible {
+    transform: scaleX(1);
+}
+
+#circleCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Ensure other elements are above the canvas */
+.services > *:not(#circleCanvas) {
+    position: relative;
+    z-index: 2;
+}
+/* ... (keep existing styles) ... */
+
+@media (max-width: 1024px) {
+    .services {
+        padding: 30px 15px;
+    }
+
+    .services > .service-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    .service-row {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+        width: 48%; /* Adjust as needed */
+        position: relative;
+    }
+
+    .service-category {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        max-width: 180px; /* Adjust size as needed */
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 20px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .service-category h2 {
+        font-size: 1.4rem; /* Adjust as needed */
+    }
+
+    .service-items {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: 150px; /* Adjust as needed */
+        align-items: center;
+    }
+
+    .service-item {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        max-width: 150px; /* Adjust size as needed */
+        transform: translateY(-30px);
+        opacity: 0;
+        padding: 10px;
+    }
+
+    .service-item.visible {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .service-icon {
+        width: 65px; /* Adjust size as needed */
+        height: 65px;
+        margin-top: 15px;
+        margin-bottom: 0px;
+    }
+
+    .service-item h4 {
+        font-size: 1rem; /* Adjust as needed */
+        margin-bottom: 0px;
+    }
+
+    .connecting-line {
+        position: absolute;
+        top: 170px; /* Adjust based on category height */
+        left: 50%;
+        width: 2px;
+        height: calc(100% - 190px); /* Adjust based on category height and desired end point */
+        background-color: #F62C62;
+        transform: scaleY(0);
+        transform-origin: top center;
+        transition: transform 0.6s ease;
+    }
+
+    .connecting-line.visible {
+        transform: scaleY(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .services .section-heading {
+        font-size: 2rem;
+    }
+
+    .services .section-description {
+        font-size: 0.9rem;
+    }
+
+    .service-category {
+        max-width: 150px; /* Further reduce size for phones */
+    }
+
+    .service-category h2 {
+        font-size: 1.2rem; /* Adjust as needed */
+    }
+
+    .service-items {
+        max-width: 120px; /* Adjust as needed */
+    }
+
+    .service-item {
+        max-width: 120px; /* Further reduce size for phones */
+        max-height: 120px;
+    }
+
+    .service-icon {
+        margin-top: 2%;
+        width: 58px; /* Further reduce size for phones */
+        height: 58px;
+    }
+
+    .service-item h4 {
+        font-size: 0.8rem; /* Adjust as needed */
+    }
+
+    .connecting-line {
+        top: 120px; /* Adjust based on category height */
+    }
+}

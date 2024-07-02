@@ -1,0 +1,224 @@
+.why-choose-us {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px 50px 20px;
+    background-color: #030405;
+    overflow: hidden;
+}
+
+.section-heading {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-top: 100px;
+    margin-bottom: 0px;
+    text-align: center;
+    background: linear-gradient(45deg, #F62C62, #F39C12);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-description {
+    font-size: 1.15rem;
+    margin-top: 10px;
+    color: #F0F4EE;
+    text-align: center;
+    max-width: 800px;
+    margin-bottom: 50px;
+}
+
+.reasons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1100px;
+    gap: 40px;
+}
+
+.reason-box {
+    flex: 1;
+    min-height: 300px;
+    background: linear-gradient(to bottom, rgba(246, 44, 98, 0.6), #030405);
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 0 15px rgba(246, 44, 98, 0.3);
+    transform: translateY(50%);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+    margin-top: 40px;
+}
+
+.reason-icon {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85px;
+    height: 85px;
+    background-color: #020202;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    overflow: visible;
+}
+
+.reason-icon::after {
+    content: '';
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    border: 2px solid #F62C62;
+    border-top: none;
+    box-shadow: 0 0 10px #F62C62, 0 0 20px #F62C62;
+    animation: glowPulse 2s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% {
+        opacity: 0.5;
+        box-shadow: 0 0 5px #F62C62, 0 0 10px #F62C62;
+    }
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 10px #F62C62, 0 0 20px #F62C62;
+    }
+}
+
+.reason-icon img {
+    width: 65px;
+    height: 65px;
+}
+
+.reason-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #F0F4EE;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.reason-box.visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.reason-divider {
+    height: 2.5px;
+    background-color: #F0F4EE;
+    margin-bottom: 15px;
+}
+
+.reason-content {
+    font-size: 1rem;
+    color: #F0F4EE;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+    .reasons-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+        padding: 0 20px; /* Add padding to the container */
+    }
+
+    .reason-box {
+        width: 70%;
+        max-width: 500px;
+        margin-bottom: 0;
+        min-height: auto; /* Remove fixed height */
+        padding: 40px 25px 25px; /* Increase top padding for icon */
+        transform: translateX(-100%); /* Start off-screen to the left */
+        opacity: 0;
+        transition: transform 1s ease, opacity 1s ease;
+    }
+
+    .section-heading {
+        font-size: 3rem;
+    }
+
+    .section-description {
+        font-size: 1.1rem;
+        padding: 0 20px; /* Add padding to description */
+    }
+
+    .reason-icon {
+        top: -40px; /* Adjust icon position */
+    }
+    
+    .reason-box:nth-child(even) {
+        transform: translateX(100%); /* Even boxes start off-screen to the right */
+    }
+
+    .reason-box.visible {
+        transform: translateX(0);
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .why-choose-us {
+        padding: 30px 15px; /* Adjust section padding */
+    }
+
+    .section-heading {
+        font-size: 2.5rem;
+        margin-top: 30px;
+    }
+
+    .section-description {
+        font-size: 1rem;
+        padding: 0 15px;
+        margin-bottom: 30px;
+    }
+
+    .reasons-container {
+        gap: 50px;
+        padding: 0 15px;
+    }
+
+    .reason-box {
+        max-width: 70%;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding: 35px 20px 20px;
+    }
+
+    .reason-title {
+        font-size: 1.3rem;
+    }
+
+    .reason-content {
+        font-size: 0.9rem;
+    }
+
+    .reason-icon {
+        width: 70px;
+        height: 70px;
+        top: -35px;
+    }
+
+    .reason-icon::after {
+        width: 70px;
+        height: 70px;
+    }
+
+    .reason-icon img {
+        width: 50px;
+        height: 50px;
+    }
+}
